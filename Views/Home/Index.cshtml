@@ -1,0 +1,108 @@
+﻿@{
+  ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center ">
+  <h1 class="display-4">Welcome</h1>
+  <p>NIGHT CONSOLES WELCOMES YOU TO JOIN THE FUTURE OF GAMING.</p>
+  @* <div class="btn">
+  <i class='bx bx-joystick'></i>
+  <a href="@Url.Content("~/Home/brief")">JOIN US</a>
+  </div> *@
+  <div class="box-2">
+    <div class="btn btn-two">
+      <i class='bx bx-joystick'></i>
+      <a href="@Url.Content("~/Home/brief")">JOIN US</a>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  .btn-two {
+    color: #FFF;
+    transition: all 0.5s;
+    position: relative;
+  }
+
+  .btn-two span {
+    z-index: 2;
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .btn-two::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-two::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.5s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-two:hover::before {
+    transform: rotate(-45deg);
+    background-color: rgba(254, 240, 240, 0);
+  }
+
+  .btn-two:hover::after {
+    transform: rotate(45deg);
+    background-color: rgba(252, 230, 230, 0);
+  }
+
+  h1 {
+    letter-spacing: 10px;
+  }
+
+  p {
+    margin: 35px 0;
+    font-size: 20px;
+    font-weight: 900;
+    letter-spacing: 8px;
+  }
+
+  .btn {
+    border: 2px solid #58ffb8;
+    padding: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    border-radius: 10px;
+  }
+
+  .bx-joystick {
+    color: white;
+    margin-right: 5px;
+    font-size: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .btn:hover {
+    scale: 1.2;
+  }
+
+  a:hover {
+    color: white;
+  }
+</style>

@@ -1,0 +1,71 @@
+@model assignments.Models.Cart
+
+@{
+    ViewData["Title"] = "My Cart";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <dl class="row">
+    </dl>
+
+    @if (Model.CartItems != null)
+    {
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var cartItem in Model.CartItems)
+                {
+                    <tr>
+                        <td>@cartItem.Product.ProductName</td>
+                        <td>@cartItem.Quantity</td>
+                        <td>@cartItem.Product.Price</td>
+                        <td>
+                            @((decimal)(cartItem.Quantity * cartItem.Product.SKU))
+                        </td>
+                        <td>
+                            <form asp-action="RemoveFromCart">
+                                <input type="hidden" name="productId" asp-for="@cartItem.ProductId">
+                                <input type="submit" value="Remove" class="btn btn-danger">
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td>Total</td>
+                    <td colspan="4">@(Model.CartItems.Sum(cartItem => (decimal)(cartItem.Quantity *
+                    cartItem.Product.Price)))</td>
+                </tr>
+            </tfoot>
+        </table>
+    }
+    @if (Model.CartItems.Count > 0)
+    {
+        <a class="btn btn-success" asp-controller="Orders" asp-action="Checkout">
+            Checkout
+        </a>
+    }
+</div>
+
+ 
+
+<style>
+    th,
+    td {
+        color: white;
+
+    }
+</style>

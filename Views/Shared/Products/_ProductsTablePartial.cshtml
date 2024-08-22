@@ -1,0 +1,64 @@
+@model IEnumerable<assignments.Models.Product>
+
+<table class="table">
+    <thead>
+        <tr class="t-one">
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Game)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr class="t-one">
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductImage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Game.Title)
+                </td>
+                <td>
+                    <form asp-controller="Carts" asp-action="AddToCart">
+                        <input type="hidden" name="productId" value="@item.SKU" />
+
+                        <input type="hidden" name="quantity" value="1" />
+
+                        <input type="submit" value="Quick Add to Cart" class="btn btn-success" />
+                    </form>
+
+                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.SKU">Details</a> 
+                    @if (User.IsInRole("Admin")) {
+                        <span>&nbsp;|&nbsp;</span>
+                        <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.SKU">Edit</a>
+                        <span>&nbsp;|&nbsp;</span>
+                        <a asp-controller="Products" asp-action="Delete" asp-route-id="@item.SKU">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

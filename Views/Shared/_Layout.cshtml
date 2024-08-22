@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] NightConsole</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/assignments.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(https://wallpapercave.com/wp/wp2004803.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #e6e6e6;
+            font-family: 'Inter', sans-serif;
+            /* Set Orbitron font */
+        }
+
+        .navbar {
+        @*background-color:#1f1f1f;*@border-color: #343434;
+        }
+
+        a.nav-link.text-dark {
+            margin-left: 34px;
+        }
+
+
+        .nav-item>a {
+            font-size: 25px;
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #58ffb8 !important;
+            font-weight: bold;
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: #fe8e7c !important;
+        }
+
+        footer {
+        @*background-color:#1f1f1f;*@color: #a8a8a8;
+        }
+
+        a {
+            color: #58ffb8;
+        }
+
+        a:hover {
+            color: #fe8e7c;
+        }
+
+        img {
+            height: 71px;
+            max-width: 75px;
+            border-radius: 35px;
+            padding-right: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        @await Component.InvokeAsync("NavigationMenu")
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class=" footer text-muted py-3">
+        <div class="container">
+            &copy; 2023 - assignments - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+@model List<ConsoleList>
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark mb-3">
+    <div class="container-fluid">
+        <img
+            src=https://img.freepik.com/free-vector/retro-style-virtual-reality-set-vector-illustration-monochrome-vr-glasses-with-wings_74855-10856.jpg?w=740&t=st=1695254430~exp=1695255030~hmac=15076aed8cd8c6d29cbda347368a228bceb827c9c6ff293d2369b315758150fa>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                @foreach (var consoleList in Model)
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="@consoleList.Controller"
+                            asp-action="@consoleList.Action">@consoleList.Label</a>
+                    </li>
+                }
+                   @if (User.Identity.IsAuthenticated){
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-controller="Orders" asp-action="Index">Orders</a>
+                    </li>
+                }
+            </ul>
+                  <ul>
+                      @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                    }
+            </ul>
+        </div>
+    </div>
+</nav>

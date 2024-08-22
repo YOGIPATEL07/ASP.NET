@@ -1,0 +1,103 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.btn-primary {
+  margin: 20px 0;
+}
+
+.btn-primary:hover{
+  scale: 0.9;
+}
+.borderr {
+  border: 1px solid white;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+.form-group{
+  margin: 13px;
+}
+.t-one {
+  color: white;
+}
+
+.row {
+  padding:  0;
+  
+}
+
+.btn btn-primary{
+  border: 0;
+  outline: 0;
+  font-size:16px;
+  border-radius:16px*20;
+  padding:16px;
+  background-color: #102232;
+  
+}
+/* 
+label {
+  display: block;
+  margin-bottom:16px*1.5;
+  width: 100%;
+} */
+
+.form-control {
+  background: transparent;
+  margin-right:16px/2;
+  box-shadow:  inset 2px 2px 5px #0f1523, inset -5px -5px 10px #0f1523;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+ color: aliceblue;
+  &:focus {
+    box-shadow:  inset 1px 1px 2px #0f1523, inset -1px -1px 2px #FFF;
+  }
+}
+
+
+
+
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
+  label {
+    margin: 0;
+    flex: 1;
+  }
+}
+
+
+  
+
+
+
+
+.col-sm-2 {
+  /* border: 1px solid ; */
+
+}
+
